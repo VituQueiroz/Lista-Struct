@@ -2,9 +2,8 @@
 #include <string.h>
 #include <locale.h>
 
-#define MAX 100 // Define a capacidade máxima de pessoas na agenda
+#define MAX 100
 
-// Estruturas de dados para armazenar as informações da agenda
 typedef struct {
     char rua[100];
     int numero;
@@ -36,11 +35,9 @@ typedef struct {
     char observacoes[200];
 } Pessoa;
 
-// Variáveis globais
 Pessoa agenda[MAX];
 int total_pessoas = 0;
 
-// Funções do sistema
 void inserir_pessoa();
 void remover_pessoa();
 void buscar_por_nome();
@@ -54,7 +51,6 @@ int main() {
     return 0;
 }
 
-// Função para inserir uma nova pessoa na agenda
 void inserir_pessoa() {
     if (total_pessoas >= MAX) {
         printf("Agenda cheia!\n");
@@ -78,7 +74,7 @@ void inserir_pessoa() {
 
     printf("  Número: ");
     scanf("%d", &p.endereco.numero);
-    getchar(); // Limpa o buffer de entrada
+    getchar();
 
     printf("  Complemento: ");
     fgets(p.endereco.complemento, 50, stdin);
@@ -120,7 +116,6 @@ void inserir_pessoa() {
     printf("Pessoa inserida com sucesso!\n");
 }
 
-// Função para remover uma pessoa pelo nome
 void remover_pessoa() {
     char nome[50];
     printf("Digite o nome da pessoa a ser removida: ");
@@ -144,7 +139,6 @@ void remover_pessoa() {
     }
 }
 
-// Função para buscar uma pessoa pelo primeiro nome
 void buscar_por_nome() {
     char nome[50];
     printf("Digite o primeiro nome a ser buscado: ");
@@ -164,7 +158,6 @@ void buscar_por_nome() {
     }
 }
 
-// Função para buscar pessoas pelo mês de aniversário
 void buscar_por_mes() {
     int mes;
     printf("Digite o mês de aniversário a ser buscado: ");
@@ -184,7 +177,6 @@ void buscar_por_mes() {
     }
 }
 
-// Função para imprimir a agenda
 void imprimir_agenda() {
     if (total_pessoas == 0) {
         printf("Agenda vazia!\n");
@@ -196,7 +188,6 @@ void imprimir_agenda() {
     }
 }
 
-// Função para exibir o menu
 void menu() {
     int opcao;
     do {
@@ -204,7 +195,7 @@ void menu() {
         printf("1. Inserir Pessoa\n2. Remover Pessoa\n3. Buscar por Nome\n4. Buscar por Mês de Aniversário\n5. Imprimir Agenda\n6. Sair\n");
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
-        getchar(); // Limpa o buffer de entrada
+        getchar();
 
         switch (opcao) {
             case 1: inserir_pessoa(); break;
